@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Circle Progress Bar Using Html CSS and SVG | CSS Percentage Circle</title>
+</head>
+
+<body>
+  <div class="box">
+    <div class="percent">
+      <svg>
+        <circle cx="70" cy="70" r="70"></circle>
+        <circle cx="70" cy="70" r="70"></circle>
+      </svg>
+      <div class="number">
+        <h2 class="target">87<span>%</span></h2>
+      </div>
+    </div>
+    <h2 class="text">Progress</h2>
+  </div>
+  <div class="control-panel">
+    <label for="percentage">Percentage</label>
+    <input type="number" name="percentage" value="87" min="0" max="100">
+    <label for="color">Color</label>
+    <input type="color" name="color" value="#03a9f4">
+  </div>
+</body>
+
+</html>
+
+<script>
+  const target = document.querySelector('.target')
+
+  document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', inputChanged)
+  })
+
+  function inputChanged(e) {
+    document.documentElement.style.setProperty(`--${e.target.name}`, e.target.value)
+
+    if (e.target.name == 'percentage') {
+      target.innerHTML = `
+      ${e.target.value}<span>%</span>
+    `
+    }
+  }
+</script>
