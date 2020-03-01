@@ -1,6 +1,10 @@
 /* url 網址不需要被引號包住 */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap);
 
+:root {
+  --theme-color: #03a9f4
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #03a9f4;
+  background: var(--color);
 }
 
 .box {
@@ -58,7 +62,7 @@ body {
 
 .box .percent svg circle:nth-child(2) {
   stroke-dashoffset: calc(440 - (440 * var(--percentage, 87)) / 100);
-  stroke: var(--color,#03a9f4);
+  stroke: var(--color,var(--theme-color));
 }
 
 .box .percent .number {
@@ -127,5 +131,26 @@ input[type="number"] {
 }
 
 input[type="number"]:focus {
-  border-color: #03a9f4;
+  border-color: var(--theme-color);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: .7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: .3em;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color);
+  cursor: pointer;
 }
